@@ -1,0 +1,13 @@
+//
+//  default.xcconfig
+//  AdFinder
+//
+//  Created by ronael.bajazet on 07/01/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_BUNDLE_IDENTIFIER = fr.rteksolutions.adfinder
+PRODUCT_NAME = AdFinder
+MARKETING_VERSION = 1.0
