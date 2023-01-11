@@ -18,7 +18,7 @@ struct WebProxyEnvironment: EnvironmentProvider {
     ""
   }
 
-  var categoriesURLPath: String {
+  var adCategoriesURLPath: String {
     ""
   }
 }

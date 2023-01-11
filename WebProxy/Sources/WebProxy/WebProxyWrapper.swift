@@ -25,6 +25,11 @@ public final class WebProxyWrapper {
     return NetworkClient(session: session)
   }()
 
+  // MARK: - Services
+
+  public lazy var adsService: GetAdsServiceProtocol = GetAdsService(client: client)
+  public lazy var adCategoriesService: GetAdCategoriesServiceProtocol = GetAdCategoriesService(client: client)
+
   // MARK: - Methods
 
   public func set(environment: EnvironmentProvider) {

@@ -17,8 +17,7 @@ final class NetworkClientTests: XCTestCase {
   override func setUp() async throws {
     try await super.setUp()
 
-    let configuration = NetworkConfiguration(baseUrl: "http://www.base.url",
-                                             apiKey: "apikeyqwerty")
+    let configuration = NetworkConfiguration(baseUrl: "https://www.base.url")
     session = NetworkSessionMock(configuration: configuration)
     sut = NetworkClient(session: session)
   }
