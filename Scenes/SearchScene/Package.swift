@@ -12,13 +12,15 @@ let package = Package(
       targets: ["SearchScene"]),
   ],
   dependencies: [
-    .package(path: "../Entities")
+    .package(path: "../Entities"),
+    .package(path: "../WebProxy")
   ],
   targets: [
     .target(
       name: "SearchScene",
       dependencies: [
-        "Entities"
+        "Entities",
+        "WebProxy"
       ]),
     .testTarget(
       name: "SearchSceneTests",
