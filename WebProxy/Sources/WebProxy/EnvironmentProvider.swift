@@ -14,5 +14,5 @@ public protocol EnvironmentProvider {
   // MARK: - WS paths
 
   var adsURLPath: String { get }
-  var categoriesURLPath: String { get }
+  var adCategoriesURLPath: String { get }
 }
