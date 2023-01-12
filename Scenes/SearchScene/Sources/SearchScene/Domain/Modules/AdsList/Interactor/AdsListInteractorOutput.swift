@@ -27,10 +27,15 @@ extension AdsListInteractorCategory: Equatable {
       let thumb: URL?
     }
 
+    struct Price: Equatable {
+      let amount: Double
+      let currencyCode: String
+    }
+
     let id: Int
     let title: String
     let image: [Image]
-    let price: Double
+    let price: Price
     let isUrgent: Bool
     let category: String
   }

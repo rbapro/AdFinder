@@ -35,7 +35,8 @@ extension AdsListFactory: AdsListFactoryProtocol {
     let interactor = AdsListInteractor(dependencies: interactorDependencies)
 
     let presenter = AdsListPresenter(
-      dependencies: AdsListPresenterDependencies(interactor: interactor)
+      dependencies: AdsListPresenterDependencies(interactor: interactor,
+                                                 priceFormatter: PriceFormatter())
     )
     presenter.output = view
     interactor.output = presenter

@@ -10,6 +10,7 @@ import Foundation
 
 struct AdsListPresenterDependencies {
   let interactor: AdsListInteractorInput
+  let priceFormatter: PriceFormatterProtocol
 }
 
 final class AdsListPresenter {
@@ -18,11 +19,13 @@ final class AdsListPresenter {
 
   private let interactor: AdsListInteractorInput
   weak var output: AdsListPresenterOutput?
+  private let priceFormatter: PriceFormatterProtocol
 
   // MARK: - Init
 
   init(dependencies: AdsListPresenterDependencies) {
-    self.interactor = dependencies.interactor
+    interactor = dependencies.interactor
+    priceFormatter = dependencies.priceFormatter
   }
 }
 
@@ -35,8 +38,8 @@ extension AdsListPresenter {
       image: item.image.first?.small,
       category: item.category,
       title: item.title,
-      // TODO: convert price
-      price: String(item.price),
+      price: priceFormatter.format(price: item.price.amount,
+                                   with: item.price.currencyCode),
       urgentText: item.isUrgent ? "Dépêchez-vous !" : nil
     )
   }
@@ -72,7 +75,7 @@ extension AdsListPresenter: AdsListInteractorOutput {
     switch category {
     case let .ads(items):
       let viewItems = items.map { convert($0) }
-      output?.notiftList(with: viewItems)
+      output?.notiftList(with:  viewItems)
     case .error:
       output?.notifyError()
     }

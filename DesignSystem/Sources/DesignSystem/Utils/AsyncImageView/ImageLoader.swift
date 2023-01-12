@@ -26,7 +26,7 @@ public final class ImageLoader {
     return cache
   }()
 
-  @Published var image: UIImage?
+  @Published private(set) var image: UIImage?
   @Published private(set) var isLoading: Bool = false
 
   private var task: AnyCancellable?

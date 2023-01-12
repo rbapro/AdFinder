@@ -20,6 +20,6 @@ struct AdsListViewItem: Hashable {
   let image: URL?
   let category: String
   let title: String
-  let price: String
+  let price: String?
   let urgentText: String?
 }

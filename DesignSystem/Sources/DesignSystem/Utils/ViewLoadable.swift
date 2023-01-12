@@ -13,7 +13,7 @@ public extension UIView {
   var activityIndicator: UIActivityIndicatorView {
     let activityIndicator = UIActivityIndicatorView(style: .large)
     activityIndicator.hidesWhenStopped = true
-    activityIndicator.color = .orange
+    activityIndicator.color = .adAccentPrimary
     self.addSubview(activityIndicator)
 
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false

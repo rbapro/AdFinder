@@ -74,7 +74,7 @@ final class AdsListInteractorTests: XCTestCase {
           .init(small: URL(string: "https://www.images.com/leboncoin/43ff5a3b3692f.jpg"),
                 thumb: URL(string: "https://www.images.com/leboncoin/a3b3692f43f.jpg"))
         ],
-        price: 25.00,
+        price: .init(amount: 25.00, currencyCode: "EUR"),
         isUrgent: false,
         category: "Service"
       ),
@@ -85,7 +85,7 @@ final class AdsListInteractorTests: XCTestCase {
           .init(small: URL(string: "https://www.images.com/leboncoin/3746d8b740311.jpg"),
                 thumb: URL(string: "https://www.images.com/leboncoin/a46d8b71192f3f.jpg"))
         ],
-        price: 39000.00,
+        price: .init(amount: 39000.00, currencyCode: "EUR"),
         isUrgent: true,
         category: "Véhicule"
       ),
@@ -96,7 +96,7 @@ final class AdsListInteractorTests: XCTestCase {
           .init(small: URL(string: "https://www.images.com/leboncoin/a3b3692f.jpg"),
                 thumb: URL(string: "https://www.images.com/leboncoin/af9c43ff5a3b.jpg"))
         ],
-        price: 1150.00,
+        price: .init(amount: 1150.00, currencyCode: "EUR"),
         isUrgent: false,
         category: "Multimédia"
       ),
@@ -107,7 +107,7 @@ final class AdsListInteractorTests: XCTestCase {
           .init(small: URL(string: "https://www.images.com/leboncoin/8b740311.jpg"),
                 thumb: URL(string: "https://www.images.com/leboncoin/a3b38b740f9c4.jpg"))
         ],
-        price: 47.00,
+        price: .init(amount: 47.00, currencyCode: "EUR"),
         isUrgent: false,
         category: "Immobilier"
       )
@@ -138,7 +138,7 @@ final class AdsListInteractorTests: XCTestCase {
           .init(small: URL(string: "https://www.images.com/leboncoin/43ff5a3b3692f.jpg"),
                 thumb: URL(string: "https://www.images.com/leboncoin/a3b3692f43f.jpg"))
         ],
-        price: 25.00,
+        price: .init(amount: 25.00, currencyCode: "EUR"),
         isUrgent: false,
         category: "Service"
       ),
@@ -149,7 +149,7 @@ final class AdsListInteractorTests: XCTestCase {
           .init(small: URL(string: "https://www.images.com/leboncoin/a3b3692f.jpg"),
                 thumb: URL(string: "https://www.images.com/leboncoin/af9c43ff5a3b.jpg"))
         ],
-        price: 1150.00,
+        price: .init(amount: 1150.00, currencyCode: "EUR"),
         isUrgent: false,
         category: "Multimédia"
       )

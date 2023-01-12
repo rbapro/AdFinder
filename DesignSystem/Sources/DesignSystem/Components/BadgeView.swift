@@ -57,8 +57,7 @@ extension BadgeView {
 
     layer.borderWidth = 1
     layer.cornerRadius = 10
-    // TODO: - review
-    layer.borderColor = UIColor.orange.cgColor
-    backgroundColor = .orange.withAlphaComponent(0.7)
+    layer.borderColor = UIColor.adAccentPrimary.cgColor
+    backgroundColor = .adAccentPrimary.withAlphaComponent(0.8)
   }
 }

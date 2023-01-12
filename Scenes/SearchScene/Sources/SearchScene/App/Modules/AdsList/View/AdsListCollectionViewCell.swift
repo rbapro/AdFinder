@@ -10,13 +10,46 @@ import Foundation
 import UIKit
 import DesignSystem
 
-// TODO: - Rework cell view
-
 final class AdsListCollectionViewCell: UICollectionViewCell {
 
   // MARK: - Properties
 
-  private lazy var stackView: UIStackView = {
+  private lazy var stackView: UIStackView = makeStackView()
+  private lazy var imageView: AsyncImageView = makeImageView()
+  private lazy var titleLabel: UILabel = makeTitleLabel()
+  private lazy var priceLabel: UILabel = makePriceLabel()
+  private lazy var categoryLabel: UILabel = makeCategoryLabel()
+  private lazy var urgentBadge: BadgeView = makeUrgentBadge()
+
+  // MARK: - Methods
+
+  func configure(with item: AdsListViewItem) {
+    imageView.cancel()
+    if let image = item.image {
+      imageView.load(image: image)
+    }
+    titleLabel.text = item.title
+    priceLabel.text = item.price
+    categoryLabel.text = item.category
+    resetBadge(with: item.urgentText)
+  }
+
+  // MARK: - Private methods
+
+  private func resetBadge(with text: String?) {
+    if let urgentText = text {
+      urgentBadge.isHidden = false
+      urgentBadge.set(text: urgentText)
+    } else {
+      urgentBadge.isHidden = true
+    }
+  }
+}
+
+// MARK: - Views
+
+private extension AdsListCollectionViewCell {
+  func makeStackView() -> UIStackView {
     let stack = UIStackView()
     stack.distribution = .fill
     stack.alignment = .fill
@@ -48,69 +81,51 @@ final class AdsListCollectionViewCell: UICollectionViewCell {
     ])
 
     return stack
-  }()
+  }
 
-  private lazy var imageView: AsyncImage = {
-    let imageView = AsyncImage()
+  func makeImageView() -> AsyncImageView {
+    let imageView = AsyncImageView()
     imageView.clipsToBounds = true
     imageView.contentMode = .scaleAspectFill
     imageView.layer.cornerRadius = 8
     stackView.addArrangedSubview(imageView)
     return imageView
-  }()
+  }
 
-  private lazy var title: UILabel = {
+  func makeTitleLabel() -> UILabel {
     let label = UILabel()
     label.numberOfLines = 2
-    label.font = .boldSystemFont(ofSize: 17)
+    label.font = .descriptionBold
     stackView.addArrangedSubview(label)
     return label
-  }()
+  }
 
-  private lazy var price: UILabel = {
+  func makePriceLabel() -> UILabel {
     let label = UILabel()
     label.numberOfLines = 1
-    label.font = .boldSystemFont(ofSize: 17)
-    label.textColor = .orange
+    label.font = .descriptionBold
+    label.textColor = .adAccentPrimary
     stackView.addArrangedSubview(label)
     return label
-  }()
+  }
 
-  private lazy var category: UILabel = {
+  func makeCategoryLabel() -> UILabel {
     let label = UILabel()
     label.numberOfLines = 1
-    label.font = .systemFont(ofSize: 13)
+    label.font = .caption
     stackView.addArrangedSubview(label)
     return label
-  }()
-
-  private lazy var urgent: BadgeView = {
+  }
+  
+  func makeUrgentBadge() -> BadgeView {
     let badge = BadgeView()
-
     imageView.addSubview(badge)
     badge.translatesAutoresizingMaskIntoConstraints = false
-    badge.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8.0).isActive = true
-    badge.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -8.0).isActive = true
-
+    let padding: CGFloat = 8
+    NSLayoutConstraint.activate([
+      badge.topAnchor.constraint(equalTo: imageView.topAnchor, constant: padding),
+      badge.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -padding)
+    ])
     return badge
-  }()
-
-  // MARK: - Methods
-
-  func configure(with item: AdsListViewItem) {
-    imageView.cancel()
-    if let image = item.image {
-      imageView.load(image: image)
-    }
-    title.text = item.title
-    price.text = item.price
-    category.text = item.category
-    if let urgentText = item.urgentText {
-      urgent.isHidden = false
-      urgent.set(text: urgentText)
-    } else {
-      urgent.isHidden = true
-    }
-    layoutSubviews()
   }
 }

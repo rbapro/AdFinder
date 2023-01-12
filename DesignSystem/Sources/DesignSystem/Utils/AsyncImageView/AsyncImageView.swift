@@ -1,5 +1,5 @@
 //
-// AsyncImage.swift
+// AsyncImageView.swift
 // 
 //
 // Created by ronael.bajazet on 12/01/2023.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Combine
 
-public final class AsyncImage: UIImageView, ViewLoadable {
+public final class AsyncImageView: UIImageView, ViewLoadable {
 
   // MARK: - ViewLoadable properties
 

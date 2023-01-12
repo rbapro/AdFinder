@@ -19,6 +19,12 @@ struct AdsListInteractorDependencies {
 
 final class AdsListInteractor {
 
+  // MARK: - Constants
+
+  private enum Constants {
+    static let defaultCurrencyCode: String = "EUR"
+  }
+
   // MARK: - Properties
 
   weak var output: AdsListInteractorOutput?
@@ -57,7 +63,8 @@ private extension AdsListInteractor {
         image: ad.images.map {
           AdsListInteractorCategory.Ad.Image(small: $0.small, thumb: $0.thumb)
         },
-        price: ad.price,
+        price: .init(amount: ad.price,
+                     currencyCode: Constants.defaultCurrencyCode),
         isUrgent: ad.isUrgent,
         category: category
       )
