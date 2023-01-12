@@ -30,6 +30,26 @@ public struct AdDependencies {
   let creationDate: Date?
   let isUrgent: Bool?
   let siret: String?
+
+  public init(id: Int?,
+       categoryId: Int?,
+       title: String?,
+       description: String?,
+       price: Double?,
+       images: [Ad.Image]?,
+       creationDate: Date?,
+       isUrgent: Bool?,
+       siret: String?) {
+    self.id = id
+    self.categoryId = categoryId
+    self.title = title
+    self.description = description
+    self.price = price
+    self.images = images
+    self.creationDate = creationDate
+    self.isUrgent = isUrgent
+    self.siret = siret
+  }
 }
 
 public struct Ad: AdEntity {

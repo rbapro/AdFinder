@@ -8,8 +8,15 @@
 
 import UIKit
 
-public final class SearchScene {
+public final class SearchScene: NSObject {
   public class func make() -> UIViewController {
-    ViewController()
+    let splitViewController = UISplitViewController()
+    splitViewController.preferredDisplayMode = .oneBesideSecondary
+    splitViewController.preferredPrimaryColumnWidthFraction = 0.4
+    splitViewController.minimumPrimaryColumnWidth = splitViewController.view.bounds.size.width * 0.3
+    splitViewController.maximumPrimaryColumnWidth = splitViewController.view.bounds.size.width
+    splitViewController.view.backgroundColor = .systemBackground
+    splitViewController.viewControllers = [AdsListFactory().makeView()]
+    return splitViewController
   }
 }

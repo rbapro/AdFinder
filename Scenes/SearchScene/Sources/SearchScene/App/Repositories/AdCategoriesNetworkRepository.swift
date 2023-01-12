@@ -15,6 +15,7 @@ final class AdCategoriesNetworkRepository {
   // MARK: - Properties
 
   private let service: GetAdCategoriesServiceProtocol
+  private var task: Task<AdCategories, Error>?
 
   // MARK: - Init
 
@@ -27,11 +28,16 @@ final class AdCategoriesNetworkRepository {
 
 extension AdCategoriesNetworkRepository: AdCategoriesRepository {
   func retrieve() async throws -> AdCategories {
-    // TODO: -
-    return [:]
+    let task = Task {
+      let categories = try await service.fetch()
+      return categories.reduce(into: AdCategories()) { $0[$1.id] = $1.name }
+    }
+
+    self.task = task
+    return try await task.value
   }
 
   func cancel() {
-    // TODO: -
+    task?.cancel()
   }
 }

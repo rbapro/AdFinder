@@ -9,6 +9,6 @@
 import Foundation
 
 public struct CategoryModel: Decodable {
-  let id: Int
-  let name: String
+  public let id: Int
+  public let name: String
 }

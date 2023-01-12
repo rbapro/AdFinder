@@ -15,13 +15,13 @@ final class CurrentAdSavingRepositoryMock: CurrentAdSavingRepository {
   var invokedSaveCount = 0
   var invokedSaveParameters: (ad: CurrentAdRepositoryItem, Void)?
 
-  var saveTeamsClosure: ((CurrentAdRepositoryItem) -> Void)?
+  var saveAdsClosure: ((CurrentAdRepositoryItem) -> Void)?
 
   func save(ad: CurrentAdRepositoryItem) async {
     invokedSave = true
     invokedSaveCount += 1
     invokedSaveParameters = (ad, ())
 
-    saveTeamsClosure.map({ $0(ad) })
+    saveAdsClosure.map({ $0(ad) })
   }
 }

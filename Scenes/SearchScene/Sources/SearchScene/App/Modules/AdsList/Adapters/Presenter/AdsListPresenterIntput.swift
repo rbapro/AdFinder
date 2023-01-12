@@ -10,5 +10,5 @@ import Foundation
 
 protocol AdsListPresenterInput: AnyObject {
   func viewDidLoad()
-  func didSelectAd()
+  func didSelectAd(with identifier: Int)
 }

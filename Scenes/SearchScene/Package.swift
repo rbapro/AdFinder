@@ -13,14 +13,16 @@ let package = Package(
   ],
   dependencies: [
     .package(path: "../Entities"),
-    .package(path: "../WebProxy")
+    .package(path: "../WebProxy"),
+    .package(path: "../DesignSystem")
   ],
   targets: [
     .target(
       name: "SearchScene",
       dependencies: [
         "Entities",
-        "WebProxy"
+        "WebProxy",
+        "DesignSystem"
       ]),
     .testTarget(
       name: "SearchSceneTests",

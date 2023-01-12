@@ -11,14 +11,14 @@ import WebProxy
 
 struct WebProxyEnvironment: EnvironmentProvider {
   var baseUrl: String {
-    return ""
+    return "https://raw.githubusercontent.com/leboncoin/paperclip/master"
   }
 
   var adsURLPath: String {
-    ""
+    "/listing.json"
   }
 
   var adCategoriesURLPath: String {
-    ""
+    "/categories.json"
   }
 }

@@ -16,7 +16,7 @@ final class AdsListPresenter {
 
   // MARK: - Properties
 
-  let interactor: AdsListInteractorInput
+  private let interactor: AdsListInteractorInput
   weak var output: AdsListPresenterOutput?
 
   // MARK: - Init
@@ -26,26 +26,55 @@ final class AdsListPresenter {
   }
 }
 
+// MARK: - Private
+
+extension AdsListPresenter {
+  func convert(_ item: AdsListInteractorCategory.Ad) -> AdsListViewItem {
+    .init(
+      id: item.id,
+      image: item.image.first?.small,
+      category: item.category,
+      title: item.title,
+      // TODO: convert price
+      price: String(item.price),
+      urgentText: item.isUrgent ? "Dépêchez-vous !" : nil
+    )
+  }
+}
+
 // MARK: - AdsListPresenterInput
 
 extension AdsListPresenter: AdsListPresenterInput {
   func viewDidLoad() {
-    // TODO: -
+    Task {
+      await interactor.retrieve()
+    }
   }
 
-  func didSelectAd() {
-    // TODO: -
+  func didSelectAd(with identifier: Int) {
+    Task {
+      await interactor.handleAd(with: identifier)
+    }
   }
 }
 
 // MARK: - AdsListInteractorOutput
 
 extension AdsListPresenter: AdsListInteractorOutput {
+  @MainActor
   func notifyLoading() async {
-    // TODO: -
+    output?.showLoading()
   }
 
+  @MainActor
   func notify(category: AdsListInteractorCategory) async {
-    // TODO: -
+    output?.hideLoading()
+    switch category {
+    case let .ads(items):
+      let viewItems = items.map { convert($0) }
+      output?.notiftList(with: viewItems)
+    case .error:
+      output?.notifyError()
+    }
   }
 }

@@ -12,7 +12,7 @@ final class AdsListRouter {}
 
 // MARK: - AdsListRouting
 
-extension AdsListPresenter: AdsListRouting {
+extension AdsListRouter: AdsListRouting {
   func routeToDetails() async {
     // TODO: -
   }
