@@ -8,8 +8,6 @@
 
 import UIKit
 
-// TODO: - Fix layout in collectionview
-
 public final class BadgeView: UIView {
 
   // MARK: - Properties

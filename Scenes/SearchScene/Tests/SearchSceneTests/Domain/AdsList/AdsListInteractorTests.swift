@@ -51,7 +51,7 @@ final class AdsListInteractorTests: XCTestCase {
 
   // MARK: retrieve
 
-  func test_retrieve_whenRetrieveAdsWithMatchingCategories_thenNotifyAds() async {
+  func test_retrieve_whenRetrieveAdsWithMatchingCategories_thenNotifyAdsSortedByDate() async {
     // GIVEN: user access ads list AND there is available ads
     adsRepository.retrieveReturnValue = AdEntityMock.makeStubs()
     adCategoriesRepository.retrieveReturnValue = AdCategoryMock.makeStubs()
@@ -68,28 +68,6 @@ final class AdsListInteractorTests: XCTestCase {
     XCTAssertTrue(output.invokedNotify)
     let expectedAds: [AdsListInteractorCategory.Ad] = [
       .init(
-        id: 1664493117,
-        title: "Ad 1 title",
-        image: [
-          .init(small: URL(string: "https://www.images.com/leboncoin/43ff5a3b3692f.jpg"),
-                thumb: URL(string: "https://www.images.com/leboncoin/a3b3692f43f.jpg"))
-        ],
-        price: .init(amount: 25.00, currencyCode: "EUR"),
-        isUrgent: false,
-        category: "Service"
-      ),
-      .init(
-        id: 1077103477,
-        title: "Ad 2 title",
-        image: [
-          .init(small: URL(string: "https://www.images.com/leboncoin/3746d8b740311.jpg"),
-                thumb: URL(string: "https://www.images.com/leboncoin/a46d8b71192f3f.jpg"))
-        ],
-        price: .init(amount: 39000.00, currencyCode: "EUR"),
-        isUrgent: true,
-        category: "Véhicule"
-      ),
-      .init(
         id: 1671026575,
         title: "Ad 3 title",
         image: [
@@ -101,6 +79,17 @@ final class AdsListInteractorTests: XCTestCase {
         category: "Multimédia"
       ),
       .init(
+        id: 1664493117,
+        title: "Ad 1 title",
+        image: [
+          .init(small: URL(string: "https://www.images.com/leboncoin/43ff5a3b3692f.jpg"),
+                thumb: URL(string: "https://www.images.com/leboncoin/a3b3692f43f.jpg"))
+        ],
+        price: .init(amount: 25.00, currencyCode: "EUR"),
+        isUrgent: false,
+        category: "Service"
+      ),
+      .init(
         id: 1701863683,
         title: "Ad 4 title",
         image: [
@@ -110,12 +99,23 @@ final class AdsListInteractorTests: XCTestCase {
         price: .init(amount: 47.00, currencyCode: "EUR"),
         isUrgent: false,
         category: "Immobilier"
+      ),
+      .init(
+        id: 1077103477,
+        title: "Ad 2 title",
+        image: [
+          .init(small: URL(string: "https://www.images.com/leboncoin/3746d8b740311.jpg"),
+                thumb: URL(string: "https://www.images.com/leboncoin/a46d8b71192f3f.jpg"))
+        ],
+        price: .init(amount: 39000.00, currencyCode: "EUR"),
+        isUrgent: true,
+        category: "Véhicule"
       )
     ]
     XCTAssertEqual(output.invokedNotifyParameters?.category, .ads(expectedAds))
   }
 
-  func test_retrieve_whenRetrieveAdsWithSomeUnmatchingCategories_thenNotifyAds() async {
+  func test_retrieve_whenRetrieveAdsWithSomeUnmatchingCategories_thenNotifyAdsSortedByDate() async {
     // GIVEN: user access ads list AND there is available ads
     adsRepository.retrieveReturnValue = AdEntityMock.makeStubs(setInvalidCategories: true)
     adCategoriesRepository.retrieveReturnValue = AdCategoryMock.makeStubs()
@@ -132,17 +132,6 @@ final class AdsListInteractorTests: XCTestCase {
     XCTAssertTrue(output.invokedNotify)
     let expectedAds: [AdsListInteractorCategory.Ad] = [
       .init(
-        id: 1664493117,
-        title: "Ad 1 title",
-        image: [
-          .init(small: URL(string: "https://www.images.com/leboncoin/43ff5a3b3692f.jpg"),
-                thumb: URL(string: "https://www.images.com/leboncoin/a3b3692f43f.jpg"))
-        ],
-        price: .init(amount: 25.00, currencyCode: "EUR"),
-        isUrgent: false,
-        category: "Service"
-      ),
-      .init(
         id: 1671026575,
         title: "Ad 3 title",
         image: [
@@ -152,6 +141,17 @@ final class AdsListInteractorTests: XCTestCase {
         price: .init(amount: 1150.00, currencyCode: "EUR"),
         isUrgent: false,
         category: "Multimédia"
+      ),
+      .init(
+        id: 1664493117,
+        title: "Ad 1 title",
+        image: [
+          .init(small: URL(string: "https://www.images.com/leboncoin/43ff5a3b3692f.jpg"),
+                thumb: URL(string: "https://www.images.com/leboncoin/a3b3692f43f.jpg"))
+        ],
+        price: .init(amount: 25.00, currencyCode: "EUR"),
+        isUrgent: false,
+        category: "Service"
       )
     ]
     XCTAssertEqual(output.invokedNotifyParameters?.category, .ads(expectedAds))

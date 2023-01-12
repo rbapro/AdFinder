@@ -53,7 +53,8 @@ private extension AdsListInteractor {
     dataSource.fetchedAds = ads
     dataSource.fetchedAdCategories = categories
     
-    let ads: [AdsListInteractorCategory.Ad] = ads.compactMap { ad -> AdsListInteractorCategory.Ad? in
+    let ads: [AdsListInteractorCategory.Ad] = ads.sorted(by: { $0.creationDate > $1.creationDate })
+      .compactMap { ad -> AdsListInteractorCategory.Ad? in
       guard let category = categories[ad.categoryId] else {
         return nil
       }
