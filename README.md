@@ -1,5 +1,5 @@
 # AdFinder - iOS Classified Ads App
-AdFinder is a native iOS app for classified ads. Developed with Swift 5.7, the app is designed to run on iOS 14.0 and higher. The app's architecture attempts to adhere to the SOLID principles to ensure maintainability and scalability. No external dependencies are used in the project.
+AdFinder is a native iOS app for classified ads. Developed with Swift 5.7, the app is designed to run on iOS 14.0 and higher. The app's architecture attempts to adhere to the SOLID principles to ensure maintainability, testability and scalability. No external dependencies are used in the project.
 
 ### Project Structure
 The project is structured in a modular way, with a main workspace and project named AdFinder, and several local SPM frameworks developed and used by the project:

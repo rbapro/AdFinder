@@ -25,7 +25,7 @@ class AdsListViewController: UIViewController, ViewLoadable {
   lazy var collectionView: UICollectionView = {
     let collectionView = UICollectionView(frame: view.bounds,
                                           collectionViewLayout: makeViewLayout())
-
+    collectionView.backgroundColor = .systemBackground
     view.addSubview(collectionView)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
