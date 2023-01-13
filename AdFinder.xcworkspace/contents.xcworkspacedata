@@ -2,9 +2,22 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Entities">
+   </FileRef>
+   <FileRef
+      location = "group:DesignSystem">
+   </FileRef>
+   <Group
+      location = "group:Scenes"
+      name = "Scenes">
+      <FileRef
+         location = "group:/Users/ronael.bajazet/Downloads/LBC/AdFinder/Scenes/SearchScene">
+      </FileRef>
+   </Group>
+   <FileRef
       location = "group:AdFinder/AdFinder.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SearchScene">
+      location = "group:WebProxy">
    </FileRef>
 </Workspace>

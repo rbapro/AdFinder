@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6DB09EE296AFCA9008538FA /* WebProxyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB09ED296AFCA9008538FA /* WebProxyEnvironment.swift */; };
+		B6DB09F0296AFCC1008538FA /* WebProxy in Frameworks */ = {isa = PBXBuildFile; productRef = B6DB09EF296AFCC1008538FA /* WebProxy */; };
 		B6E3EA6D2969D6510029A1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E3EA6C2969D6510029A1B6 /* AppDelegate.swift */; };
 		B6E3EA762969D6530029A1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E3EA752969D6530029A1B6 /* Assets.xcassets */; };
 		B6E3EA792969D6530029A1B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E3EA772969D6530029A1B6 /* LaunchScreen.storyboard */; };
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6DB09ED296AFCA9008538FA /* WebProxyEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProxyEnvironment.swift; sourceTree = "<group>"; };
 		B6E3EA692969D6510029A1B6 /* AdFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E3EA6C2969D6510029A1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6E3EA752969D6530029A1B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6DB09F0296AFCC1008538FA /* WebProxy in Frameworks */,
 				B6E3EAA42969DCDD0029A1B6 /* SearchScene in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6DB09EC296AFC84008538FA /* WebProxy */ = {
+			isa = PBXGroup;
+			children = (
+				B6DB09ED296AFCA9008538FA /* WebProxyEnvironment.swift */,
+			);
+			path = WebProxy;
+			sourceTree = "<group>";
+		};
 		B6E3EA602969D6510029A1B6 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +135,7 @@
 		B6E3EA9C2969D66E0029A1B6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B6DB09EC296AFC84008538FA /* WebProxy */,
 				B6E3EA6C2969D6510029A1B6 /* AppDelegate.swift */,
 			);
 			path = Sources;
@@ -172,6 +185,7 @@
 			name = AdFinder;
 			packageProductDependencies = (
 				B6E3EAA32969DCDD0029A1B6 /* SearchScene */,
+				B6DB09EF296AFCC1008538FA /* WebProxy */,
 			);
 			productName = AdFinder;
 			productReference = B6E3EA692969D6510029A1B6 /* AdFinder.app */;
@@ -289,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6E3EA6D2969D6510029A1B6 /* AppDelegate.swift in Sources */,
+				B6DB09EE296AFCA9008538FA /* WebProxyEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +480,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,7 +507,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,6 +639,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B6DB09EF296AFCC1008538FA /* WebProxy */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WebProxy;
+		};
 		B6E3EAA32969DCDD0029A1B6 /* SearchScene */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SearchScene;
