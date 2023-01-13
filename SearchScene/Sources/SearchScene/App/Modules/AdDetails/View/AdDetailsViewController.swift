@@ -150,7 +150,8 @@ private extension AdDetailsViewController {
   func makeImageView() -> AsyncImageView {
     let imageView = AsyncImageView()
     imageView.clipsToBounds = true
-    imageView.contentMode = .scaleToFill
+    imageView.backgroundColor = .systemGray
+    imageView.contentMode = .scaleAspectFit
     contentStackView.addArrangedSubview(imageView)
     return imageView
   }
