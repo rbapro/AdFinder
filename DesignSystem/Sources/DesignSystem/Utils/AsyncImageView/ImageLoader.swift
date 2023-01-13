@@ -33,7 +33,6 @@ public final class ImageLoader {
 
   private static let imageLoadingQueue: DispatchQueue = .init(label: "com.imageLoading.queue")
 
-
   // MARK: - Init
 
   public init() {}

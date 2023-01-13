@@ -4,14 +4,11 @@
    <FileRef
       location = "group:Entities">
    </FileRef>
-   <FileRef
-      location = "group:DesignSystem">
-   </FileRef>
    <Group
-      location = "group:Scenes"
+      location = "container:"
       name = "Scenes">
       <FileRef
-         location = "group:/Users/ronael.bajazet/Downloads/LBC/AdFinder/Scenes/SearchScene">
+         location = "group:SearchScene">
       </FileRef>
    </Group>
    <FileRef
@@ -19,5 +16,8 @@
    </FileRef>
    <FileRef
       location = "group:WebProxy">
+   </FileRef>
+   <FileRef
+      location = "group:DesignSystem">
    </FileRef>
 </Workspace>
