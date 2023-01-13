@@ -51,7 +51,7 @@ final class AdsListCollectionViewCell: UICollectionViewCell {
 private extension AdsListCollectionViewCell {
   func makeStackView() -> UIStackView {
     let stack = UIStackView()
-    stack.distribution = .fill
+    stack.distribution = .fillProportionally
     stack.alignment = .fill
     stack.axis = .vertical
     stack.spacing = 4
@@ -59,25 +59,10 @@ private extension AdsListCollectionViewCell {
     contentView.addSubview(stack)
     stack.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      stack.leadingAnchor.constraint(
-        equalTo: contentView.leadingAnchor,
-        constant: 0
-      ),
-      stack.topAnchor.constraint(
-        equalTo: contentView.topAnchor,
-        constant: 0
-      ),
-      stack.trailingAnchor.constraint(
-        equalTo: contentView.trailingAnchor,
-        constant: 0
-      ),
-      stack.bottomAnchor.constraint(
-        equalTo: contentView.bottomAnchor,
-        constant: 0
-      ),
-      stack.widthAnchor.constraint(
-        equalTo: contentView.widthAnchor
-      )
+      stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+      stack.topAnchor.constraint(equalTo: contentView.topAnchor),
+      stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+      stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
     ])
 
     return stack
@@ -96,6 +81,8 @@ private extension AdsListCollectionViewCell {
     let label = UILabel()
     label.numberOfLines = 2
     label.font = .descriptionBold
+    label.setContentHuggingPriority(.required, for: .vertical)
+    label.setContentCompressionResistancePriority(.required, for: .vertical)
     stackView.addArrangedSubview(label)
     return label
   }
@@ -105,6 +92,8 @@ private extension AdsListCollectionViewCell {
     label.numberOfLines = 1
     label.font = .descriptionBold
     label.textColor = .adAccentPrimary
+    label.setContentHuggingPriority(.required, for: .vertical)
+    label.setContentCompressionResistancePriority(.required, for: .vertical)
     stackView.addArrangedSubview(label)
     return label
   }
@@ -113,6 +102,8 @@ private extension AdsListCollectionViewCell {
     let label = UILabel()
     label.numberOfLines = 1
     label.font = .caption
+    label.setContentHuggingPriority(.required, for: .vertical)
+    label.setContentCompressionResistancePriority(.required, for: .vertical)
     stackView.addArrangedSubview(label)
     return label
   }

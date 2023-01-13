@@ -6,14 +6,26 @@
 // Copyright © 2023 RTEK SOLUTIONS. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-final class AdsListRouter {}
+struct AdsListRouterDependencies {
+  let viewController: UIViewController
+}
+
+
+final class AdsListRouter {
+  private weak var viewController: UIViewController?
+
+  init(dependencies: AdsListRouterDependencies) {
+    viewController = dependencies.viewController
+  }
+}
 
 // MARK: - AdsListRouting
 
 extension AdsListRouter: AdsListRouting {
+  @MainActor
   func routeToDetails() async {
-    // TODO: -
+    viewController?.splitViewController?.show(.secondary)
   }
 }

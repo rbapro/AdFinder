@@ -32,7 +32,8 @@ public final class AsyncImageView: UIImageView, ViewLoadable {
   // MARK: - Methods
 
   public func load(image url: URL,
-                   placeholder: UIImage? = nil) {
+                   placeholder: UIImage? = .placeholder) {
+
     loader.load(image: url)
     subscribeToImageUpdate(placeholder)
     subscribeToLoadingState()
