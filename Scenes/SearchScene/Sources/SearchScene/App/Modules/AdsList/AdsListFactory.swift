@@ -25,9 +25,13 @@ extension AdsListFactory: AdsListFactoryProtocol {
     let adsRepository = AdsNetworkRepository(service: WebProxyWrapper.shared.adsService)
     let adCategoriesRepository = AdCategoriesNetworkRepository(service: WebProxyWrapper.shared.adCategoriesService)
 
+    let routerDependencies = AdsListRouterDependencies(
+      viewController: view
+    )
+    let router = AdsListRouter(dependencies: routerDependencies)
     let interactorDependencies = AdsListInteractorDependencies(
       dataSource: AdsListInteractorDataSource(),
-      router: AdsListRouter(),
+      router: router,
       adsRepository: adsRepository,
       adCategoriesRepository: adCategoriesRepository,
       currentAdRepository: CurrentAdSharedRepository.shared
@@ -42,6 +46,6 @@ extension AdsListFactory: AdsListFactoryProtocol {
     interactor.output = presenter
     view.presenter = presenter
 
-    return UINavigationController(rootViewController: view)
+    return view
   }
 }

@@ -1,5 +1,5 @@
 //
-// PriceFormatterProtocol.swift
+// PriceFormatter.swift
 // 
 //
 // Created by ronael.bajazet on 12/01/2023.
